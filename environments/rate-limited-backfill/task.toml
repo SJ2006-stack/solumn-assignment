@@ -1,0 +1,28 @@
+schema_version = "1.4"
+
+[task]
+name = "solumn/rate-limited-backfill"
+version = "1.0.0"
+authors = [{ name = "shriyansh-jaiswal" }]
+keywords = ["sync", "pagination", "CY.RA"]
+
+[metadata]
+category = "programming"
+difficulty = "medium"
+subpolicy = "CY.RA"
+tags = ["sync", "pagination", "quota"]
+difficulty_explanation = "The HTTP client, quota config, and backoff helper exist. Paging and the page cache are unfinished, and the sync has to finish inside the documented quota."
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "no-network"
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+allow_internet = false

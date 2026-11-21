@@ -1,0 +1,17 @@
+; Opening and a few January movements. Amounts are USD, scale 2.
+
+2024-01-01 opening balances
+  assets:cash                 500.00
+  equity:opening
+
+2024-01-02 client payment
+  assets:cash                 125.50
+  income:services
+
+2024-01-03 supplies
+  expenses:supplies            40.25
+  assets:cash
+
+2024-01-04 owner draw
+  equity:draw                  75.00
+  assets:cash

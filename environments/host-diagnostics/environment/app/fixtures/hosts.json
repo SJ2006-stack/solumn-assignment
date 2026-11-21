@@ -1,0 +1,7 @@
+{
+  "hosts": [
+    {"name": "api", "base_url": "http://127.0.0.1:8761"},
+    {"name": "worker", "base_url": "http://127.0.0.1:8762"},
+    {"name": "billing-external", "base_url": "http://127.0.0.1:8763"}
+  ]
+}

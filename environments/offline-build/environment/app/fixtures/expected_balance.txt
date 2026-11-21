@@ -1,0 +1,7 @@
+TRIAL BALANCE
+account                         debit       credit
+assets:cash                    510.25             
+equity:draw                     75.00             
+equity:opening                              500.00
+expenses:supplies               40.25             
+income:services                             125.50

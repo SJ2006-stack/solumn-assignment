@@ -1,0 +1,5 @@
+{
+  "api": {"status": "ok", "service": "api"},
+  "worker": {"status": "ok", "service": "worker"},
+  "billing-external": {"status": "ok", "service": "billing-external"}
+}

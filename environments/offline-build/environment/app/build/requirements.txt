@@ -1,0 +1,3 @@
+# name kind
+# kind is "vendored" when vendor/<name>.py is already in the tree.
+decimalx vendored

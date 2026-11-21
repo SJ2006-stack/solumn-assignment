@@ -1,0 +1,28 @@
+schema_version = "1.4"
+
+[task]
+name = "solumn/oneshot-collector"
+version = "1.0.0"
+authors = [{ name = "shriyansh-jaiswal" }]
+keywords = ["support", "diagnostic", "CY.EM"]
+
+[metadata]
+category = "programming"
+difficulty = "medium"
+subpolicy = "CY.EM"
+tags = ["support", "report", "one-shot"]
+difficulty_explanation = "Host facts, the report schema, and the consent line exist. Disk collection is unfinished. The command writes under /app/out and exits."
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "no-network"
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+allow_internet = false

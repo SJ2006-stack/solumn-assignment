@@ -1,0 +1,7 @@
+{
+  "base_url": "http://127.0.0.1:8870",
+  "max_requests": 12,
+  "max_in_flight": 1,
+  "page_size": 5,
+  "item_count": 30
+}

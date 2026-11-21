@@ -1,0 +1,28 @@
+schema_version = "1.4"
+
+[task]
+name = "solumn/offline-build"
+version = "1.0.0"
+authors = [{ name = "shriyansh-jaiswal" }]
+keywords = ["ledger", "offline-build", "CY.AA"]
+
+[metadata]
+category = "programming"
+difficulty = "medium"
+subpolicy = "CY.AA"
+tags = ["build", "ledger", "offline"]
+difficulty_explanation = "The journal core is finished. Money formatting and the release manifest are not, and the build must stay inside the vendored allow-list."
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+build_timeout_sec = 600.0
+network_mode = "no-network"
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+allow_internet = false
