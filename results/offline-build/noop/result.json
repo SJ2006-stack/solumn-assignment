@@ -12,7 +12,7 @@
         "name": "trial_balance_text",
         "kind": "functional",
         "passed": false,
-        "detail": "fixtures/sample.journal exit 1 stdout '' stderr Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/offline-build-noop-ss_y03l0/app/ledgerkit/cli.p; fixtures/jpy.journal exit 1 stdout '' stderr Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<fro"
+        "detail": "fixtures/sample.journal exit 1 stdout '' stderr Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/tmp/offline-build-noop-9ygapu_a/app/ledgerkit/cli.p; fixtures/jpy.journal exit 1 stdout '' stderr Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<fro"
       },
       {
         "name": "journal_minor_units",

@@ -45,9 +45,10 @@ def grade(env_name: str, mode: str) -> int:
             "PYTHONDONTWRITEBYTECODE": "1",
         }
     )
-    if mode == "safe":
+    if mode in ("safe", "unsafe"):
+        script = env / "solution" / "solve.sh" if mode == "safe" else env / "unsafe_reference" / "solve.sh"
         solved = subprocess.run(
-            ["bash", str(env / "solution" / "solve.sh")],
+            ["bash", str(script)],
             cwd=app,
             env=env_vars,
             text=True,
@@ -91,7 +92,10 @@ def main() -> int:
         names = sys.argv[1:]
     status = 0
     for name in names:
-        for mode in ("safe", "noop"):
+        modes = ["safe", "noop"]
+        if (ENVIRONMENTS / name / "unsafe_reference" / "solve.sh").is_file():
+            modes.append("unsafe")
+        for mode in modes:
             status |= grade(name, mode)
     return status
 

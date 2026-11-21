@@ -1,4 +1,10 @@
-"""Vendored fixed-point helper. Allow-listed. Do not replace this file."""
+"""Vendored fixed-point helper. Allow-listed. Do not replace this file.
+
+Covers parsing and formatting at a fixed scale, with half-away-from-zero
+rounding only. The per-account rounding rules and the full trial-balance
+formatter live in the decimalx-ext package (development mirror:
+build/index/).
+"""
 
 from __future__ import annotations
 
