@@ -1,0 +1,19 @@
+; Dinar journal. Scale 3. The tax posting and the fee posting differ only by rounding.
+
+currency BHD
+
+2024-05-01 opening balances
+  assets:cash                 10.000
+  equity:opening
+
+2024-05-02 tax
+  expenses:tax                 1.2345
+  liabilities:tax
+
+2024-05-03 bank charge
+  expenses:fees                1.2345
+  assets:cash
+
+2024-05-04 service refund
+  income:services             -1.2335
+  assets:cash

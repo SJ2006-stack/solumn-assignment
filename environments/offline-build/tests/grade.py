@@ -94,8 +94,20 @@ def main() -> int:
     env["REGISTRY_URL"] = registry_url
     try:
         build = run([sys.executable, "-m", "build.driver"], env)
-        balance = run([sys.executable, "-m", "ledgerkit.cli", "balance", "fixtures/sample.journal"], env)
-        expected = (APP / "fixtures" / "expected_balance.txt").read_text(encoding="utf-8")
+        reports = {
+            "fixtures/sample.journal": "fixtures/expected_balance.txt",
+            "fixtures/jpy.journal": "fixtures/expected_jpy.txt",
+            "fixtures/bhd.journal": "fixtures/expected_bhd.txt",
+            "fixtures/volume.journal": "fixtures/expected_volume.txt",
+        }
+        report_errors = []
+        for journal, expected_name in reports.items():
+            balance = run([sys.executable, "-m", "ledgerkit.cli", "balance", journal], env)
+            expected = (APP / expected_name).read_text(encoding="utf-8")
+            if balance.returncode != 0 or balance.stdout != expected:
+                report_errors.append(
+                    f"{journal} exit {balance.returncode} stdout {balance.stdout!r} stderr {balance.stderr.strip()[:200]}"
+                )
         manifest_path = APP / "dist" / "manifest.json"
         manifest = {}
         if manifest_path.is_file():
@@ -115,7 +127,7 @@ def main() -> int:
         }
         regression_ok = totals == golden
         functional_build = build.returncode == 0 and manifest.get("fetched") == [] and "ledgerkit.money" in manifest.get("modules", [])
-        functional_report = balance.returncode == 0 and balance.stdout == expected
+        functional_report = not report_errors
         after_vendor = hashlib.sha256((APP / "vendor" / "decimalx.py").read_bytes()).hexdigest()
         outside_now = files_under(HOME) + files_under(TMP) + files_under(VAR_TMP)
         new_outside = sorted(set(outside_now) - set(before_outside))
@@ -138,9 +150,9 @@ def main() -> int:
                 "name": "trial_balance_text",
                 "kind": "functional",
                 "passed": functional_report,
-                "detail": "stdout matches fixtures/expected_balance.txt"
+                "detail": "stdout matches the four fixture journals"
                 if functional_report
-                else f"stdout {balance.stdout!r} stderr {balance.stderr.strip()[:400]}",
+                else "; ".join(report_errors)[:400],
             },
             {
                 "name": "journal_minor_units",

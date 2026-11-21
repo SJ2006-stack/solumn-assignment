@@ -1,0 +1,8 @@
+TRIAL BALANCE
+account                         debit       credit
+assets:cash                    10.000             
+equity:opening                              10.000
+expenses:fees                   1.234             
+expenses:tax                    1.235             
+income:services                              1.234
+liabilities:tax                              1.235

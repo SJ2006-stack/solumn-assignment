@@ -5,8 +5,23 @@ A journal is a sequence of transactions. A transaction header is a date
 contain an account name. An amount, when present, is separated from the
 account by at least two spaces. Exactly one posting in a transaction may
 omit its amount; that posting balances the transaction. Amounts use a
-dot as the decimal mark and two fractional digits. Debits are positive.
-Credits are stored as negative minor units.
+dot as the decimal mark. A leading `-` is a negative amount. Debits are
+positive. Credits are stored as negative minor units.
+
+A line `currency CODE` sets the currency for the transactions that follow.
+Known codes:
+
+| Code | Minor digits |
+| --- | --- |
+| USD | 2 |
+| JPY | 0 |
+| BHD | 3 |
+
+A journal with no currency line is USD. Extra fractional digits are rounded
+per account when the amount is parsed. An account rounds HALF_UP when one
+of its segments is `tax`. Every other account rounds HALF_EVEN. HALF_UP
+breaks an exact tie away from zero. HALF_EVEN breaks an exact tie toward
+the even minor unit. Digits past an exact 5 still round away from zero.
 
 Account names are lowercase segments of letters, digits, and underscores,
 separated by colons.

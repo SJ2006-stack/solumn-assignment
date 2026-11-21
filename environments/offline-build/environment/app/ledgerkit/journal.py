@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import inspect
 import re
 from dataclasses import dataclass, field
 
@@ -31,6 +32,8 @@ class AccountNameError(LedgerError):
 ACCOUNT_RE = re.compile(r"^[a-z][a-z0-9_]*(?::[a-z][a-z0-9_]*)*$")
 HEADER_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\s+(\S.*)$")
 AMOUNT_RE = re.compile(r"^[+-]?\d+(?:\.\d+)?$")
+CURRENCY_RE = re.compile(r"^currency\s+([A-Z]{3})$")
+CURRENCY_SCALE = {"USD": 2, "JPY": 0, "BHD": 3}
 
 
 @dataclass
@@ -46,6 +49,7 @@ class Transaction:
     description: str
     postings: list[Posting] = field(default_factory=list)
     line_number: int = 1
+    currency: str = "USD"
 
     def minors(self, parse_amount) -> list[tuple[str, int]]:
         """Return (account, minor) pairs, inferring one omitted amount."""
@@ -60,7 +64,9 @@ class Transaction:
                 blank_at = index
                 parsed.append((posting.account, None))
             else:
-                parsed.append((posting.account, parse_amount(posting.amount_text)))
+                parsed.append(
+                    (posting.account, _parse_amount(parse_amount, posting.amount_text, posting.account))
+                )
         if not parsed:
             raise BalanceError("transaction has no postings", self.line_number)
         known = [value for _, value in parsed if value is not None]
@@ -73,6 +79,23 @@ class Transaction:
         else:
             parsed[blank_at] = (parsed[blank_at][0], -sum(known))
         return [(account, value) for account, value in parsed if value is not None]
+
+
+def scale_of(code: str) -> int:
+    try:
+        return CURRENCY_SCALE[code]
+    except KeyError as exc:
+        raise ParseError(f"unknown currency {code}") from exc
+
+
+def _parse_amount(parse_amount, text: str, account: str) -> int:
+    try:
+        parameters = inspect.signature(parse_amount).parameters
+    except (TypeError, ValueError):
+        parameters = {}
+    if len(parameters) >= 2:
+        return parse_amount(text, account)
+    return parse_amount(text)
 
 
 def validate_account(name: str, line_number: int) -> str:
@@ -98,6 +121,7 @@ def parse_journal(text: str) -> list[Transaction]:
     """Parse journal text. Comments start with ';' and are ignored."""
     transactions: list[Transaction] = []
     current: Transaction | None = None
+    currency = "USD"
     for line_number, raw in enumerate(text.splitlines(), start=1):
         stripped_comment = raw.split(";", 1)[0].rstrip()
         if not stripped_comment.strip():
@@ -110,6 +134,12 @@ def parse_journal(text: str) -> list[Transaction]:
             continue
         if current is not None:
             transactions.append(current)
+        currency_match = CURRENCY_RE.match(stripped_comment.strip())
+        if currency_match:
+            currency = currency_match.group(1)
+            scale_of(currency)
+            current = None
+            continue
         match = HEADER_RE.match(stripped_comment.strip())
         if match is None:
             raise ParseError(
@@ -119,6 +149,7 @@ def parse_journal(text: str) -> list[Transaction]:
             date=match.group(1),
             description=match.group(2).strip(),
             line_number=line_number,
+            currency=currency,
         )
     if current is not None:
         transactions.append(current)

@@ -24,12 +24,13 @@ def header_line() -> str:
     )
 
 
-def render_trial_balance(totals: dict[str, int]) -> str:
+def render_trial_balance(totals: dict[str, int], scale: int = 2) -> str:
     """Render a trial balance.
 
-    `totals` maps an account to minor units (debits positive). This raises
-    until in-tree amount formatting exists.
+    `totals` maps an account to minor units (debits positive). `scale` is
+    the journal currency's minor-digit count. This raises until in-tree
+    amount formatting exists.
     """
     raise NotImplementedError(
-        "trial-balance formatting is unfinished; format minor units at scale 2"
+        f"trial-balance formatting is unfinished; format minor units at scale {scale}"
     )

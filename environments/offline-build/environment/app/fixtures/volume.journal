@@ -1,0 +1,137 @@
+currency USD
+
+2024-07-01 opening balances
+  assets:cash                 1000.00
+  equity:opening
+
+2024-07-02 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-03 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-04 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-05 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-06 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-07 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-08 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-09 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-10 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-11 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-12 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-13 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-14 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-15 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-16 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-17 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-18 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-19 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-20 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-21 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-22 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-23 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-24 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-25 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-26 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-27 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-28 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-29 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-30 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-31 daily services
+  assets:cash                  10.00
+  income:services
+
+2024-07-31 tax accrual
+  expenses:tax                 1.225
+  liabilities:tax
+
+2024-07-31 bank fee
+  expenses:bank                1.225
+  assets:cash
+
+2024-07-31 fee reversal
+  income:services             -1.235
+  assets:cash

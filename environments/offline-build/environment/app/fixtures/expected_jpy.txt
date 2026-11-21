@@ -1,0 +1,7 @@
+TRIAL BALANCE
+account                         debit       credit
+assets:cash                      1167             
+equity:opening                                1000
+expenses:fees                       2             
+income:sales                                   250
+liabilities:tax                    81             

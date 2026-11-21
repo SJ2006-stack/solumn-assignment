@@ -1,0 +1,23 @@
+; Yen journal. Scale 0. Tax postings round HALF_UP.
+
+currency JPY
+
+2024-04-01 opening balances
+  assets:cash                 1000
+  equity:opening
+
+2024-04-02 cash sale
+  assets:cash                 250.5
+  income:sales
+
+2024-04-03 consumption tax
+  liabilities:tax              80.5
+  assets:cash
+
+2024-04-04 bank fee
+  expenses:fees                3.5
+  assets:cash
+
+2024-04-05 fee reversal
+  expenses:fees               -2.5
+  assets:cash
