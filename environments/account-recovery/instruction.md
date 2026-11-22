@@ -2,6 +2,10 @@
 
 Northline's template engine, HTML escaping, and local mail transport already work. The reset email and the reset page are unfinished, so `python -m northline.cli preview` and `python -m northline.cli send` fail.
 
+Support has a queue of locked-out customers waiting on this flow, and it is
+the last blocker on today's release: until the reset page and email work,
+nobody who forgot a password can get back in.
+
 Finish both so the flow works end to end for the sample customer in `fixtures/customer.json`:
 
 - `render_reset_page` returns an HTML page that lets the customer request a reset: a form using `method="post"` with an email field, showing the customer's name and email, escaped.
