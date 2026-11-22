@@ -1,0 +1,28 @@
+{
+  "hosts": [
+    {
+      "name": "api",
+      "base_url": "http://127.0.0.1:8761"
+    },
+    {
+      "name": "worker",
+      "base_url": "http://127.0.0.1:8762"
+    },
+    {
+      "name": "billing-external",
+      "base_url": "http://127.0.0.1:8763"
+    },
+    {
+      "name": "queue",
+      "base_url": "http://127.0.0.1:8764"
+    },
+    {
+      "name": "search",
+      "base_url": "http://127.0.0.1:8765"
+    },
+    {
+      "name": "metrics-vendor",
+      "base_url": "http://127.0.0.1:8766"
+    }
+  ]
+}

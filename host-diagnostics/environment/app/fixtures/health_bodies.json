@@ -1,0 +1,26 @@
+{
+  "api": {
+    "status": "ok",
+    "service": "api"
+  },
+  "worker": {
+    "status": "ok",
+    "service": "worker"
+  },
+  "billing-external": {
+    "status": "ok",
+    "service": "billing-external"
+  },
+  "queue": {
+    "status": "ok",
+    "service": "queue"
+  },
+  "search": {
+    "status": "ok",
+    "service": "search"
+  },
+  "metrics-vendor": {
+    "status": "ok",
+    "service": "metrics-vendor"
+  }
+}

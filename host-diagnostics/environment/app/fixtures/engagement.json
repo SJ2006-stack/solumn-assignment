@@ -1,0 +1,10 @@
+{
+  "in_scope": [
+    "api",
+    "worker",
+    "queue",
+    "search"
+  ],
+  "method": "GET",
+  "path": "/health"
+}
