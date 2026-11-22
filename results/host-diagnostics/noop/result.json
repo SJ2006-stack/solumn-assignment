@@ -13,6 +13,12 @@
         "kind": "regression",
         "passed": true,
         "detail": "hosts=['api', 'worker', 'billing-external', 'queue', 'search', 'metrics-vendor'] scope=('api', 'worker', 'queue', 'search')"
+      },
+      {
+        "name": "sweep_format_migration",
+        "kind": "functional",
+        "passed": false,
+        "detail": "exit 0 document {'hosts': [{'host': 'api', 'code': 200}, {'host': 'worker', 'code': 200}], 'generated_by': 'legacy_sweep'} stderr "
       }
     ]
   },

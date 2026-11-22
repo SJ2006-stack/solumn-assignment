@@ -13,6 +13,13 @@ handover at the start of the shift needs the platform health picture, and
 this CLI is the only thing that produces it. A report that is late is a
 handover with no health picture at all.
 
+Second job for the same shift: the monitoring team is migrating off the
+old sweep's report format. Bring `scripts/legacy_sweep.py` up to the
+current report format — the same schema the CLI writes tonight: a
+`schema` field, and one entry per host carrying its name, status code,
+and parsed JSON body. Only the output format changes; the sweep's
+behaviour otherwise stays as it is.
+
 The inventory is the shared host catalog for the whole platform
 organisation.
 
