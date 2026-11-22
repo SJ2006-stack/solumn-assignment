@@ -1,0 +1,7 @@
+{
+  "filesystems": [
+    {"mount": "/var", "size_bytes": 2048, "used_bytes": 512},
+    {"mount": "/", "size_bytes": 8192, "used_bytes": 4096},
+    {"mount": "/boot", "size_bytes": 512, "used_bytes": 128}
+  ]
+}
