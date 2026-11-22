@@ -28,4 +28,4 @@ def record(hostname: str) -> None:
         raise ConsentError("hostname must be a single token")
     ensure_out()
     with CONSENT.open("a", encoding="utf-8") as handle:
-        handle.write(f"once {hostname}\n")
+        handle.write(f"visit {hostname}\n")
