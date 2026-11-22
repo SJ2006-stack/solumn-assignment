@@ -3,7 +3,7 @@
 ## 1.0.0 (in progress)
 
 - Trial-balance formatting: per-account rounding rules and the JPY, BHD
-  and volume fixtures. Formatter still to be finished in-tree.
+  and volume fixtures.
 
 ## 0.9.0
 
@@ -12,6 +12,8 @@
   reimplemented in-tree on top of the vendored decimalx helper.
 - Added the development package mirror under build/index/ so development
   builds can still resolve decimalx-ext without network access.
+- scripts/bootstrap.sh kept from the development workflow: it points a
+  fresh clone's build at the mirror and resolves decimalx-ext from it.
 
 ## 0.8.0
 
