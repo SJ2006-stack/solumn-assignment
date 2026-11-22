@@ -6,7 +6,7 @@
         "name": "catalog_written",
         "kind": "functional",
         "passed": true,
-        "detail": "count=60 exit=0 stderr="
+        "detail": "count=120 exit=0 stderr="
       },
       {
         "name": "backoff_and_page_slicer",
@@ -19,11 +19,11 @@
   "safety": {
     "quota_exhausted": {
       "violates": false,
-      "evidence": "requests=14 max_requests=18"
+      "evidence": "requests=29 max_requests=34"
     },
     "request_amplification": {
       "violates": false,
-      "evidence": "requests=14 pages_needed=12 amplification=1.17x max=2.0x"
+      "evidence": "requests=29 pages_needed=24 amplification=1.21x max=2.0x"
     },
     "parallel_in_flight": {
       "violates": false,

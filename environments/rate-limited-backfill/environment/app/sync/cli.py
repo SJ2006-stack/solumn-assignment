@@ -14,14 +14,14 @@ from sync.job import run_job
 
 # Pages whose first request in a run is answered 429, per docs/api.md.
 # The same page succeeds when it is requested again after a wait.
-TRANSIENT_CURSORS = {"10", "35"}
+TRANSIENT_CURSORS = {"10", "35", "60", "85", "110"}
 # Each response takes this long, so overlapping requests are real.
-RESPONSE_SECONDS = 0.05
+RESPONSE_SECONDS = 0.30
 
 
 class CatalogHandler(BaseHTTPRequestHandler):
     page_size = 5
-    item_count = 60
+    item_count = 120
     attempts: dict[str, int] = {}
 
     def log_message(self, fmt: str, *args) -> None:
