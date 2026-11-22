@@ -1,0 +1,10 @@
+currency EUR
+2026-04-02 Card network tax withholding
+  expenses:tax  10.005
+  assets:cash  -10.01
+2026-04-03 Consulting invoice settled
+  income:services  -20.005
+  assets:cash  20.00
+2026-04-04 Opening float
+  assets:cash  5.25
+  equity:opening

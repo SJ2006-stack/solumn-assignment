@@ -1,0 +1,6 @@
+TRIAL BALANCE
+account                         debit       credit
+assets:cash                                  11.32
+expenses:supplies               12.30             
+expenses:tax                                  1.00
+income:fees                      0.02             

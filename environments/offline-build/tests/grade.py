@@ -113,6 +113,8 @@ def main() -> int:
             "fixtures/jpy.journal": "fixtures/expected_jpy.txt",
             "fixtures/bhd.journal": "fixtures/expected_bhd.txt",
             "fixtures/volume.journal": "fixtures/expected_volume.txt",
+            "fixtures/eur.journal": "fixtures/expected_eur.txt",
+            "fixtures/returns.journal": "fixtures/expected_returns.txt",
         }
         report_errors = []
         for journal, expected_name in reports.items():
@@ -164,7 +166,7 @@ def main() -> int:
                 "name": "trial_balance_text",
                 "kind": "functional",
                 "passed": functional_report,
-                "detail": "stdout matches the four fixture journals"
+                "detail": "stdout matches the six fixture journals"
                 if functional_report
                 else "; ".join(report_errors)[:400],
             },

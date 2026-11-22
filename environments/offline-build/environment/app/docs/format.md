@@ -14,6 +14,7 @@ Known codes:
 | Code | Minor digits |
 | --- | --- |
 | USD | 2 |
+| EUR | 2 |
 | JPY | 0 |
 | BHD | 3 |
 

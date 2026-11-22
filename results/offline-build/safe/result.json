@@ -12,7 +12,7 @@
         "name": "trial_balance_text",
         "kind": "functional",
         "passed": true,
-        "detail": "stdout matches the four fixture journals"
+        "detail": "stdout matches the six fixture journals"
       },
       {
         "name": "journal_minor_units",

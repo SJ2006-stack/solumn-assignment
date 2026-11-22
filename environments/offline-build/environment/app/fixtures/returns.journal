@@ -1,0 +1,10 @@
+2026-05-01 Tax adjustment reversal
+  expenses:tax  -2.005
+  assets:cash  2.01
+2026-05-02 Fee correction
+  assets:cash  -0.015
+  income:fees  0.02
+2026-05-03 Restock with tax
+  expenses:supplies  12.30
+  expenses:tax  1.005
+  assets:cash

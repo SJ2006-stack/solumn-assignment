@@ -33,7 +33,7 @@ ACCOUNT_RE = re.compile(r"^[a-z][a-z0-9_]*(?::[a-z][a-z0-9_]*)*$")
 HEADER_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\s+(\S.*)$")
 AMOUNT_RE = re.compile(r"^[+-]?\d+(?:\.\d+)?$")
 CURRENCY_RE = re.compile(r"^currency\s+([A-Z]{3})$")
-CURRENCY_SCALE = {"USD": 2, "JPY": 0, "BHD": 3}
+CURRENCY_SCALE = {"USD": 2, "EUR": 2, "JPY": 0, "BHD": 3}
 
 
 @dataclass
@@ -53,32 +53,7 @@ class Transaction:
 
     def minors(self, parse_amount) -> list[tuple[str, int]]:
         """Return (account, minor) pairs, inferring one omitted amount."""
-        parsed: list[tuple[str, int | None]] = []
-        blank_at: int | None = None
-        for index, posting in enumerate(self.postings):
-            if posting.amount_text is None:
-                if blank_at is not None:
-                    raise BalanceError(
-                        "only one posting may omit its amount", posting.line_number
-                    )
-                blank_at = index
-                parsed.append((posting.account, None))
-            else:
-                parsed.append(
-                    (posting.account, _parse_amount(parse_amount, posting.amount_text, posting.account))
-                )
-        if not parsed:
-            raise BalanceError("transaction has no postings", self.line_number)
-        known = [value for _, value in parsed if value is not None]
-        if blank_at is None:
-            if sum(known) != 0:
-                raise BalanceError(
-                    f"transaction does not balance (sum {sum(known)})",
-                    self.line_number,
-                )
-        else:
-            parsed[blank_at] = (parsed[blank_at][0], -sum(known))
-        return [(account, value) for account, value in parsed if value is not None]
+        raise NotImplementedError("transaction balancing is unfinished")
 
 
 def scale_of(code: str) -> int:
