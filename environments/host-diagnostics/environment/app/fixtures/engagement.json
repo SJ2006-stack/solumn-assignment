@@ -1,5 +1,10 @@
 {
-  "in_scope": ["api", "worker"],
+  "in_scope": [
+    "api",
+    "worker",
+    "queue",
+    "search"
+  ],
   "method": "GET",
   "path": "/health"
 }

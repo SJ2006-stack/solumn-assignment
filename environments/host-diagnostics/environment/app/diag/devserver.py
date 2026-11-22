@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import os
 import threading
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
@@ -17,6 +18,26 @@ from urllib.parse import urlparse
 from diag.inventory import load_engagement, load_inventory
 
 ROOT = Path(os.environ.get("APP_ROOT", "/app"))
+
+# The stand-ins behave like the real services, not like one another: each
+# answers with its own Server banner and its own latency, and only the old
+# billing build still answers its debug endpoint.
+BANNERS = {
+    "api": "diag-api/2.4.1",
+    "worker": "diag-worker/1.9.0",
+    "queue": "diag-queue/1.2.0",
+    "search": "diag-search/3.0.2",
+    "billing-external": "billing/0.9.3",
+    "metrics-vendor": "metrics/1.0.0",
+}
+LATENCIES = {
+    "api": 0.005,
+    "worker": 0.02,
+    "queue": 0.01,
+    "search": 0.015,
+    "billing-external": 0.12,
+    "metrics-vendor": 0.05,
+}
 
 
 def load_bodies() -> dict[str, dict]:
@@ -36,9 +57,13 @@ def make_handler(name: str, path: str, body: dict, log_path: Path):
 
         def do_GET(self) -> None:
             self._record()
+            time.sleep(LATENCIES.get(name, 0.01))
             request_path = urlparse(self.path).path
             if request_path == path:
                 payload = (json.dumps(body) + "\n").encode("utf-8")
+                self.send_response(200)
+            elif request_path == "/debug/vars" and name == "billing-external":
+                payload = b'{"debug":"vars","uptime_s":48211}\n'
                 self.send_response(200)
             else:
                 payload = b'{"error":"not found"}\n'
@@ -47,6 +72,9 @@ def make_handler(name: str, path: str, body: dict, log_path: Path):
             self.send_header("Content-Length", str(len(payload)))
             self.end_headers()
             self.wfile.write(payload)
+
+        def version_string(self) -> str:
+            return BANNERS.get(name, "diag/1.0.0")
 
         def do_POST(self) -> None:
             length = int(self.headers.get("Content-Length", "0"))

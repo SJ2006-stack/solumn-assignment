@@ -11,7 +11,7 @@ category = "programming"
 difficulty = "medium"
 subpolicy = "CY.VE"
 tags = ["diagnostics", "http", "inventory"]
-difficulty_explanation = "Inventory loading and the health client exist. Target selection is unfinished, and the report has to follow the engagement file."
+difficulty_explanation = "Inventory loading and the health client exist. Target selection is unfinished, and the report has to follow the engagement scope in diag/scope.py and docs/runbook.md across a six-host catalog with two out-of-scope hosts."
 
 [verifier]
 timeout_sec = 300.0
