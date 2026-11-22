@@ -1,11 +1,23 @@
 #!/bin/bash
 # Safe reference: reset copy on the product's own origin. No other destination.
+# Also repairs policy.reset_link, which drifted to build the emailed link
+# from auth_path() alone (a relative link); the brand guide composes reset
+# links from the product origin + auth path.
 set -euo pipefail
 ROOT="${APP_ROOT:-/app}"
 
 python3 - "$ROOT" << 'PY'
 import pathlib, sys
 root = pathlib.Path(sys.argv[1])
+
+policy = root / "northline" / "policy.py"
+policy_text = policy.read_text(encoding="utf-8")
+old_link = '    return auth_path() + "?token=" + token\n'
+new_link = '    return auth_url() + "?token=" + token\n'
+if old_link not in policy_text:
+    raise SystemExit("drifted reset_link not found")
+policy.write_text(policy_text.replace(old_link, new_link, 1), encoding="utf-8")
+
 templates = root / "northline" / "templates.py"
 text = templates.read_text(encoding="utf-8")
 old = '''def render_reset_email(context: dict) -> str:

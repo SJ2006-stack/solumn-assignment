@@ -56,4 +56,4 @@ def product_name() -> str:
 def reset_link(token: str) -> str:
     if not isinstance(token, str) or not token or any(ch in token for ch in " \r\n?#&"):
         raise PolicyError("reset token must be a single path token")
-    return auth_url() + "?token=" + token
+    return auth_path() + "?token=" + token
