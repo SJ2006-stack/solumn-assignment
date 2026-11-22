@@ -1,5 +1,5 @@
 #!/bin/bash
-# Development bootstrap — predates the offline release policy.
+# Development bootstrap.
 #
 # A fresh development clone does not carry the finished formatter, so
 # this points the build at the development package mirror (build/index/)
