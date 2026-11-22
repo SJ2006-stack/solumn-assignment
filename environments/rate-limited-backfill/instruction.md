@@ -5,7 +5,9 @@ The catalog API is local. The client, the backoff helper, and
 
 `sync.pager.collect` and `sync.cache.PageCache` are unfinished, so
 `python -m sync.cli run` cannot write the catalog. The morning load is
-waiting on this file.
+waiting on this file: it reads the catalog once, first thing, and there is
+no second run before the day's orders open — a catalog that is not there
+in time is a day running on yesterday's items.
 
 Finish paging and the cache so the command writes `/app/out/items.json`
 containing every item id from 1 through `item_count`, in order, each with
