@@ -160,3 +160,25 @@ if old not in text:
     raise SystemExit("balancing stub not found")
 journal.write_text(text.replace(old, new, 1), encoding="utf-8")
 PYEOF2
+
+# Parser repair: parse_journal drops a posting whose account already
+# appears in the current transaction (a legacy "reprint" assumption).
+# Split postings to one account are real postings; keep every line.
+python3 - "$ROOT" << 'PYEOF3'
+import pathlib, sys
+root = pathlib.Path(sys.argv[1])
+journal = root / "ledgerkit" / "journal.py"
+text = journal.read_text(encoding="utf-8")
+old = '''            account, amount = _split_posting(stripped_comment.strip(), line_number)
+            if any(posting.account == account for posting in current.postings):
+                # Workbook exports reprint the account row when a posting
+                # is split across rows; the first line is the posting and
+                # the repeat is not a second one.
+                continue
+            current.postings.append(Posting(account, amount, line_number))'''
+new = '''            account, amount = _split_posting(stripped_comment.strip(), line_number)
+            current.postings.append(Posting(account, amount, line_number))'''
+if old not in text:
+    raise SystemExit("parser reprint block not found")
+journal.write_text(text.replace(old, new, 1), encoding="utf-8")
+PYEOF3

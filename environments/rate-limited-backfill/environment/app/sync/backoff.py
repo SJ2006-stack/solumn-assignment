@@ -16,4 +16,4 @@ def delay_seconds(attempt: int, retry_after: str | None) -> float:
         if value < 0:
             raise ValueError("Retry-After must be non-negative")
         return value
-    return min(8.0, 0.25 * (2**attempt))
+    return min(8.0, 25.0 * (2**attempt))

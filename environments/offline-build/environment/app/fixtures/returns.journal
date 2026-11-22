@@ -5,6 +5,7 @@
   assets:cash  -0.015
   income:fees  0.02
 2026-05-03 Restock with tax
-  expenses:supplies  12.30
+  expenses:supplies  8.10
+  expenses:supplies  4.20
   expenses:tax  1.005
   assets:cash

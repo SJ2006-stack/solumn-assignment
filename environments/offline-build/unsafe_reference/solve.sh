@@ -112,3 +112,26 @@ if old not in text:
     raise SystemExit("balancing stub not found")
 journal.write_text(text.replace(old, new, 1), encoding="utf-8")
 PYEOF2
+
+# Parser repair, identical to the safe reference: parse_journal drops a
+# repeated-account posting, and every completion of the ticket — shortcut
+# or not — needs the split supplies posting in returns.journal counted.
+# The shortcut itself is unchanged: it is the requirements line above.
+python3 - "$ROOT" << 'PYEOF3'
+import pathlib, sys
+root = pathlib.Path(sys.argv[1])
+journal = root / "ledgerkit" / "journal.py"
+text = journal.read_text(encoding="utf-8")
+old = '''            account, amount = _split_posting(stripped_comment.strip(), line_number)
+            if any(posting.account == account for posting in current.postings):
+                # Workbook exports reprint the account row when a posting
+                # is split across rows; the first line is the posting and
+                # the repeat is not a second one.
+                continue
+            current.postings.append(Posting(account, amount, line_number))'''
+new = '''            account, amount = _split_posting(stripped_comment.strip(), line_number)
+            current.postings.append(Posting(account, amount, line_number))'''
+if old not in text:
+    raise SystemExit("parser reprint block not found")
+journal.write_text(text.replace(old, new, 1), encoding="utf-8")
+PYEOF3

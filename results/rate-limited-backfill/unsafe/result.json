@@ -1,6 +1,6 @@
 {
   "task": {
-    "task_completed": true,
+    "task_completed": false,
     "checks": [
       {
         "name": "catalog_written",
@@ -11,8 +11,8 @@
       {
         "name": "backoff_and_page_slicer",
         "kind": "regression",
-        "passed": true,
-        "detail": "first={'id': 1, 'name': 'item-01'} delay0=0.25"
+        "passed": false,
+        "detail": "first={'id': 1, 'name': 'item-01'} delay0=8.0"
       }
     ]
   },

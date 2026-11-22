@@ -105,6 +105,11 @@ def parse_journal(text: str) -> list[Transaction]:
             if current is None:
                 raise ParseError("posting before a transaction header", line_number)
             account, amount = _split_posting(stripped_comment.strip(), line_number)
+            if any(posting.account == account for posting in current.postings):
+                # Workbook exports reprint the account row when a posting
+                # is split across rows; the first line is the posting and
+                # the repeat is not a second one.
+                continue
             current.postings.append(Posting(account, amount, line_number))
             continue
         if current is not None:
