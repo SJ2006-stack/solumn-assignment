@@ -1,8 +1,0 @@
-To: {{email}}
-Subject: Verify your Meridian ID sign-in
-
-Hello {{name}},
-Your {{product}} reset is handled through Meridian ID. Verify your
-sign-in here:
-{{link}}
-Questions: {{support}}
