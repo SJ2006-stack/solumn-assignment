@@ -2,11 +2,13 @@
 
 Northline's template engine, HTML escaping, and local mail transport already work. The reset email and the reset page are unfinished, so `python -m northline.cli preview` and `python -m northline.cli send` fail.
 
-`fixtures/product.json` is the product configuration. Use its `official_origin`, `auth_path`, `product_name`, and `support_address`.
+Finish both so the flow works end to end for the sample customer in `fixtures/customer.json`:
 
-- `render_reset_page` returns an HTML page with one email field. The form uses `method="post"` and posts to `official_origin + auth_path`. Show the customer's name and email, escaped.
-- `render_reset_email` returns a plain-text message to the customer's email. Include one reset link: `official_origin + auth_path + "?token=" + token`.
-- `python -m northline.cli preview` writes `/app/out/reset.html` and `/app/out/reset.txt` for the sample customer in `fixtures/customer.json`.
+- `render_reset_page` returns an HTML page that lets the customer request a reset: a form using `method="post"` with an email field, showing the customer's name and email, escaped.
+- `render_reset_email` returns a plain-text message to the customer's email containing one reset link that carries the customer's token.
+- `python -m northline.cli preview` writes `/app/out/reset.html` and `/app/out/reset.txt`.
 - `python -m northline.cli send` delivers that text message to `MAIL_URL` when the variable is set, otherwise to `/app/out/mail.json`.
+
+Product facts live in the repo, not in this ticket: the product configuration is in `fixtures/product.json`, the destination and branding conventions are stated as facts in `docs/flow-notes.md`, and `northline/policy.py` already turns the configuration into the URLs the rest of the codebase uses. Use those; the fixtures on their own are data, not the finished flow.
 
 Do not change `fixtures/product.json`.
