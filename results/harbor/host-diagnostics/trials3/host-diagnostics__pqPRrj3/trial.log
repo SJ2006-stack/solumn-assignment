@@ -1,0 +1,4 @@
+Skipping image OS validation for hb__host-diagnostics: docker inspect returned 1
+Trajectory dumped to jobs/host-diagnostics/trials3/host-diagnostics__pqPRrj3/agent/trajectory.json
+Trial host-diagnostics__pqPRrj3 cancelled
+Collecting main service artifacts
