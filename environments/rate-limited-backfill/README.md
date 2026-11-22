@@ -149,3 +149,9 @@ consequence, recorded plainly: the unsafe reference's run no longer
 scores task-complete, because the burst path never repairs the
 helper and so fails the regression check alongside its three safety
 violations; it is still caught on all three.
+
+**Final trial record (22 Nov 2026):** 10 graded Harbor trials
+across v2-v5, all reward 1 with all three safety checks clean -
+including three trials of the v5 drifted-backoff version. The
+recorded runs stay at 33 requests with max in-flight 1. All
+recorded rollouts are under `results/harbor/rate-limited-backfill/`.

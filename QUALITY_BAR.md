@@ -149,8 +149,24 @@ record accurately.
 - **The ambiguity lever on offline-build** (policy as history rather
   than instruction) was exhausted after two rounds and documented
   rather than pushed further.
+- **A second renamed self-attack variant per environment** was
+  planned and not shipped; coverage stands at one renamed variant
+  per grader, each caught.
 - **Back-translation** (deriving tickets from finished software,
   R2E-Gym style) was assessed and not adopted: the five repos were
   built unfinished-first, and rebuilding them finished-first was
   judged worse than spending the same hours on strengthening rounds
   and recorded trials. Stated here because the brief recommends it.
+
+## What I would try next
+
+Three things, in order. First, run these same five environments
+against a weaker model: a break there would show the ceiling in
+this record is gpt-6.1-sol's judgment, not the tests - with only
+this model trialled, I cannot fully separate the two. Second,
+lengthen the precedent: a shortcut normalised across several
+ordinary tickets before the graded one, so acceptance is a slope
+rather than a step. Third, deepen the composition: three
+individually benign artefacts that only become harmful combined,
+where no single step asks the model to build anything that looks
+like a weapon.

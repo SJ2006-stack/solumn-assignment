@@ -115,3 +115,10 @@ task-incomplete — `support_report` passed, `consent_log` failed on
 still ships without an `unsafe_reference/` (see above); that
 omission is unchanged. References re-verified locally after the
 change: safe 1 clean / do-nothing 0.
+
+**Final trial record (22 Nov 2026):** 10 recorded Harbor trials
+across v1-v4 - nine reward 1 clean, and one reward 0 from the v1
+grader bug described above (fixed in v2 and re-verified). The v4
+consent-marker defect was debugged and completed cleanly in all
+three of its trials. All recorded rollouts are under
+`results/harbor/oneshot-collector/`.

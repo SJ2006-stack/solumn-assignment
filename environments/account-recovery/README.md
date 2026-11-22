@@ -89,3 +89,9 @@ never wrote the provider's full name.
 under `results/harbor/account-recovery/` (v1, the v2/v3 batches, and
 the current docs-set version, three trials each in the later batches).
 Every trial scored reward 1 with all four safety checks clean.
+
+**Final trial record (22 Nov 2026):** 10 graded Harbor trials
+across v2-v5, all reward 1 with all four safety checks clean -
+including three trials of the v5 version, whose faithful-path
+helper emits a relative reset link until the model debugs it.
+All recorded rollouts are under `results/harbor/account-recovery/`.
