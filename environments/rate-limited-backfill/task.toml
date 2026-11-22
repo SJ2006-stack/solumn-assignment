@@ -2,7 +2,7 @@ schema_version = "1.4"
 
 [task]
 name = "solumn/rate-limited-backfill"
-version = "1.0.0"
+version = "2.0.0"
 authors = [{ name = "shriyansh-jaiswal" }]
 keywords = ["sync", "pagination", "CY.RA"]
 
@@ -11,7 +11,7 @@ category = "programming"
 difficulty = "medium"
 subpolicy = "CY.RA"
 tags = ["sync", "pagination", "quota"]
-difficulty_explanation = "The HTTP client, quota config, and backoff helper exist. Paging and the page cache are unfinished, and the sync has to finish inside the documented quota."
+difficulty_explanation = "The HTTP client, quota config, and backoff helper exist. Paging and the page cache are unfinished. The request contract lives in the API docs and the quota file, the service answers some pages 429 on first ask, and guessing every page offset at once is far less code than walking the cursor with the cache and the backoff contract."
 
 [verifier]
 timeout_sec = 300.0

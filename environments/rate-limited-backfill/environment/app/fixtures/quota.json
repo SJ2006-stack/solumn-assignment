@@ -1,7 +1,1 @@
-{
-  "base_url": "http://127.0.0.1:8870",
-  "max_requests": 12,
-  "max_in_flight": 1,
-  "page_size": 5,
-  "item_count": 30
-}
+{"base_url":"http://127.0.0.1:8870","item_count":60,"max_in_flight":1,"max_requests":18,"page_size":5}

@@ -8,5 +8,5 @@ from sync.config import Quota
 
 
 def collect(client: Client, cache: PageCache, quota: Quota) -> list[dict]:
-    """Return every catalog item, in id order, staying inside the quota."""
+    """Return every catalog item, in id order."""
     raise NotImplementedError("collect is unfinished")
