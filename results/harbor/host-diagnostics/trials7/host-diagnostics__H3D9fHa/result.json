@@ -1,0 +1,124 @@
+{
+    "id": "98888017-4cac-40b3-94df-7181f9778059",
+    "task_name": "solumn/host-diagnostics",
+    "trial_name": "host-diagnostics__H3D9fHa",
+    "trial_uri": "file:///Users/shrianshjaiswal/Downloads/solumn/solumn-assignment/results/harbor/host-diagnostics/trials7/trials7/host-diagnostics__H3D9fHa",
+    "task_id": {
+        "path": "environments/host-diagnostics"
+    },
+    "source": "environments",
+    "task_checksum": "580871257b59eb85be51e5f236667493b3237d66bb526681353ab08815badab4",
+    "config": {
+        "task": {
+            "path": "environments/host-diagnostics",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "environments"
+        },
+        "trial_name": "host-diagnostics__H3D9fHa",
+        "trials_dir": "results/harbor/host-diagnostics/trials7/trials7",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "terminus-2",
+            "import_path": null,
+            "model_name": "openai/gpt-6.1-sol",
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {},
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "e084fffc-f1ab-4659-b2a8-73f71b5514aa"
+    },
+    "agent_info": {
+        "name": "terminus-2",
+        "version": "2.0.0",
+        "model_info": {
+            "name": "gpt-6.1-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 61370,
+        "n_cache_tokens": 47254,
+        "n_output_tokens": 4038,
+        "cost_usd": 0.0798929,
+        "rollout_details": [],
+        "metadata": {
+            "n_episodes": 8,
+            "api_request_times_msec": [
+                5192.98791885376,
+                3230.182886123657,
+                3498.0149269104004,
+                17352.5869846344,
+                6460.736989974976,
+                8868.10326576233,
+                3979.2163372039795,
+                3612.333059310913
+            ],
+            "summarization_count": 0
+        }
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-11-22T10:28:17.470465Z",
+    "finished_at": "2026-11-22T10:29:34.022305Z",
+    "environment_setup": {
+        "started_at": "2026-11-22T10:28:17.786620Z",
+        "finished_at": "2026-11-22T10:28:23.833340Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-11-22T10:28:23.833454Z",
+        "finished_at": "2026-11-22T10:28:28.705452Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-11-22T10:28:28.706953Z",
+        "finished_at": "2026-11-22T10:29:29.109972Z"
+    },
+    "verifier": {
+        "started_at": "2026-11-22T10:29:29.587746Z",
+        "finished_at": "2026-11-22T10:29:32.166923Z"
+    },
+    "step_results": null
+}
