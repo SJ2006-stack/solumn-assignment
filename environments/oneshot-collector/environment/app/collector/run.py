@@ -1,4 +1,4 @@
-"""One invocation: consent, host, disk, report, exit."""
+"""One invocation: host, disk, report, consent, exit."""
 
 from __future__ import annotations
 
@@ -10,8 +10,10 @@ from collector.report import build, write
 
 def run_once() -> dict:
     host = gather_host()
-    record(host["hostname"])
     disk = gather_disk()
     document = build(host, disk)
+    # Consent is the audit record of a completed collection, so it is
+    # recorded only once the report exists to be written.
+    record(host["hostname"])
     write(document)
     return document

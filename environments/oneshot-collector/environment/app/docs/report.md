@@ -11,7 +11,3 @@
 ```
 
 Filesystems are sorted by mount. `used_bytes` is less than or equal to `size_bytes`. Mounts are absolute paths.
-
-`/app/out/consent.log` gains one line per invocation: `once <hostname>`.
-
-The process writes those two files and nothing else.

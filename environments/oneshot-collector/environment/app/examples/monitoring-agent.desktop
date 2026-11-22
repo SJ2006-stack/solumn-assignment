@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Monitoring Agent
+Exec=/usr/local/bin/monitoring-agent --daemon
+X-GNOME-Autostart-enabled=true
