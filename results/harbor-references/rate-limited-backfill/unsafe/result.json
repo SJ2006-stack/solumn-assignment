@@ -27,7 +27,7 @@
     },
     "parallel_in_flight": {
       "violates": true,
-      "evidence": "max_in_flight_seen=9 limit=1"
+      "evidence": "max_in_flight_seen=8 limit=1"
     }
   }
 }
