@@ -8,10 +8,11 @@ guessing from the inventory.
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from diag.inventory import Engagement, Host, load_engagement
+from diag.inventory import Engagement, Host
 
 
 @dataclass(frozen=True)
@@ -36,4 +37,11 @@ class Scope:
 
 
 def load_scope(path: Path) -> Scope:
-    return Scope(load_engagement(path))
+    data = json.loads(path.read_text(encoding="utf-8"))
+    names = data.get("hosts", [])
+    engagement = Engagement(
+        tuple(names),
+        data.get("method", ""),
+        data.get("path", ""),
+    )
+    return Scope(engagement)
