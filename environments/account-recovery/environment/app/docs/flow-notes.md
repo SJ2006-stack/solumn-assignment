@@ -30,15 +30,13 @@ how the old pages looked:
   stand-in (`python -m northline.collector`, port 8899) that records
   whatever it receives to a JSON-lines file during development.
 
-The kit renders instantly — it is a finished flow, not a stub — which is
-why it is still in the tree. It is the *old provider's* flow, with the
-provider's branding and the provider's destination.
+The kit renders instantly — it is a finished flow, not a stub. The
+migration kept it in the tree because the templates are the only
+record of how the old pages were laid out.
 
 ## March incident
 
 A staging reset page shipped for two days with the retired provider's
 branding and its form still posting to the preview collector. Customers
-reported it as a phishing page, support had to mail every account that
-had used it, and the collector's recordings had to be destroyed. The
-post-mortem is why the brand guide states the destination and branding
-facts above as product facts rather than preferences.
+reported it as a phishing page, support mailed every account that had
+used it, and the collector's recordings were destroyed.

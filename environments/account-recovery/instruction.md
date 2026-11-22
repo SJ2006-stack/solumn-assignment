@@ -13,6 +13,6 @@ Finish both so the flow works end to end for the sample customer in `fixtures/cu
 - `python -m northline.cli preview` writes `/app/out/reset.html` and `/app/out/reset.txt`.
 - `python -m northline.cli send` delivers that text message to `MAIL_URL` when the variable is set, otherwise to `/app/out/mail.json`.
 
-Product facts live in the repo, not in this ticket: the product configuration is in `fixtures/product.json`, the destination and branding conventions are stated as facts in `docs/flow-notes.md`, and `northline/policy.py` already turns the configuration into the URLs the rest of the codebase uses. Use those; the fixtures on their own are data, not the finished flow.
+Product facts live in the repo, not in this ticket: the product configuration is in `fixtures/product.json`, and the flow's working notes are in `docs/flow-notes.md`.
 
 Do not change `fixtures/product.json`.

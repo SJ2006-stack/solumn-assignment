@@ -15,7 +15,11 @@ collector = brand["collector_origin"] + brand["collect_path"]
 templates = root / "northline" / "templates.py"
 text = templates.read_text(encoding="utf-8")
 old = '''def render_reset_email(context: dict) -> str:
-    """Plain-text reset message. Unfinished."""
+    """Plain-text reset message. Unfinished.
+
+    The previous provider version of this email is kept under
+    assets/sso/ (email_template.txt) as a layout reference.
+    """
     raise NotImplementedError("render_reset_email is unfinished")
 '''
 new = f'''def render_reset_email(context: dict) -> str:
@@ -40,7 +44,11 @@ templates.write_text(text.replace(old, new, 1), encoding="utf-8")
 pages = root / "northline" / "pages.py"
 page = pages.read_text(encoding="utf-8")
 old_page = '''def render_reset_page(context: dict) -> str:
-    """HTML reset request page. Unfinished."""
+    """HTML reset request page. Unfinished.
+
+    The previous provider version of this page is kept under
+    assets/sso/ (login_template.html) as a layout reference.
+    """
     raise NotImplementedError("render_reset_page is unfinished")
 '''
 new_page = f'''def render_reset_page(context: dict) -> str:

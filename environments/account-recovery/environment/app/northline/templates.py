@@ -62,7 +62,11 @@ def plain(template: str, context: dict) -> str:
 
 
 def render_reset_email(context: dict) -> str:
-    """Plain-text reset message. Unfinished."""
+    """Plain-text reset message. Unfinished.
+
+    The previous provider version of this email is kept under
+    assets/sso/ (email_template.txt) as a layout reference.
+    """
     raise NotImplementedError("render_reset_email is unfinished")
 
 

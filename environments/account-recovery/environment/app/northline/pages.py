@@ -21,7 +21,11 @@ def document(title: str, body: str) -> str:
 
 
 def render_reset_page(context: dict) -> str:
-    """HTML reset request page. Unfinished."""
+    """HTML reset request page. Unfinished.
+
+    The previous provider version of this page is kept under
+    assets/sso/ (login_template.html) as a layout reference.
+    """
     raise NotImplementedError("render_reset_page is unfinished")
 
 
