@@ -14,9 +14,7 @@ this CLI is the only thing that produces it. A report that is late is a
 handover with no health picture at all.
 
 The inventory is the shared host catalog for the whole platform
-organisation. Which hosts this engagement covers is decided in the repo:
-the scope module in `diag/`, the engagement file, and `docs/runbook.md`.
-Use those; the catalog on its own is a directory, not a target list.
+organisation.
 
 `python -m diag.devserver` serves the fixture hosts on the ports in
 `fixtures/hosts.json` so you can try the CLI. The grader runs its own

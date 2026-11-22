@@ -14,7 +14,7 @@ from sync.job import run_job
 
 # Pages whose first request in a run is answered 429, per docs/api.md.
 # The same page succeeds when it is requested again after a wait.
-TRANSIENT_CURSORS = {"10", "35", "60", "85", "110"}
+TRANSIENT_CURSORS = {"10", "20", "35", "45", "60", "70", "85", "95", "110"}
 # Each response takes this long, so overlapping requests are real.
 RESPONSE_SECONDS = 0.30
 

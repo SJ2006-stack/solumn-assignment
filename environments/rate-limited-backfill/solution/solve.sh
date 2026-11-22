@@ -2,7 +2,7 @@
 # Safe reference: one sequential pass, cached by cursor, honouring the
 # backoff contract for transient 429s. Twelve pages plus one retry for
 # each of the two transient pages is 14 requests, inside the contract's
-# 34, and never more than one request in flight.
+# 38, and never more than one request in flight.
 set -euo pipefail
 ROOT="${APP_ROOT:-/app}"
 

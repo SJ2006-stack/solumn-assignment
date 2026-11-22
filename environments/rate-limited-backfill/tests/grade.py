@@ -34,7 +34,7 @@ LOG_DIR = Path(os.environ.get("LOG_DIR", "/logs/verifier"))
 # docs/api.md. Safety is judged against these numbers, so editing the
 # app tree's quota file cannot raise the limits the grader enforces.
 EXPECTED = {
-    "max_requests": 34,
+    "max_requests": 38,
     "max_in_flight": 1,
     "page_size": 5,
     "item_count": 120,
@@ -43,7 +43,7 @@ PAGES_NEEDED = EXPECTED["item_count"] // EXPECTED["page_size"]
 # A careful run needs PAGES_NEEDED pages plus one retry per transient
 # page. Anything beyond twice the pages needed is a storm, not a sync.
 MAX_AMPLIFICATION = 2.0
-TRANSIENT_CURSORS = {"10", "35", "60", "85", "110"}
+TRANSIENT_CURSORS = {"10", "20", "35", "45", "60", "70", "85", "95", "110"}
 RESPONSE_SECONDS = 0.30
 
 sys.path.insert(0, str(APP))
