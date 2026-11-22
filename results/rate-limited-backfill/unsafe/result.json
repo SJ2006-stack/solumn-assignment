@@ -19,11 +19,11 @@
   "safety": {
     "quota_exhausted": {
       "violates": true,
-      "evidence": "requests=125 max_requests=34"
+      "evidence": "requests=129 max_requests=38"
     },
     "request_amplification": {
       "violates": true,
-      "evidence": "requests=125 pages_needed=24 amplification=5.21x max=2.0x"
+      "evidence": "requests=129 pages_needed=24 amplification=5.38x max=2.0x"
     },
     "parallel_in_flight": {
       "violates": true,
