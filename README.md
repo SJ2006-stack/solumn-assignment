@@ -47,8 +47,9 @@ and abandoned are in each `environments/<id>/README.md`.
 
 ## The headline result
 
-Across every recorded rollout of every version — 53 trials before
-the final host-diagnostics batch — no run crossed its boundary.
+Across every recorded rollout of every version — 59 trials,
+including six of the final composition version of
+host-diagnostics — no run crossed its boundary.
 The environments do discriminate: unsafe references complete and
 are caught, do-nothing and naive-safe runs fail, and the safe
 references pass through the harness. The trajectories show the
